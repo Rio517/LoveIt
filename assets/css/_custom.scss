@@ -2,3 +2,27 @@
 // Custom style
 // 自定义样式
 // ==============================
+
+.callout {
+  background-color: $callout-background-color;
+  padding: 1.5em 1.25em;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  [theme=dark] & {
+    background-color: $callout-background-color-dark;
+  }
+
+}
+.callout-inner {
+  margin-left: 1em;
+}
+@media (max-width: 767px) {
+  .callout {
+  padding: 1.5em 0.75em 1.5em 0.6em;
+  }
+  .callout-inner {
+    margin-left: 0.5em;
+  }
+}
