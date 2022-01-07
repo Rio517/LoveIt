@@ -26,3 +26,13 @@
     margin-left: 0.5em;
   }
 }
+
+.text-orange{
+  color: rgb(217, 115, 13);
+  [theme=dark] & {color: coral}
+
+}
+.text-blue{
+  color: #337ea9;
+  [theme=dark] & {color: aqua}
+}

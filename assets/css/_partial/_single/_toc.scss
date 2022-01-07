@@ -13,17 +13,6 @@
       padding-left: .8rem;
       list-style: none;
 
-      a:first-child::before {
-        content: "|";
-        font-weight: bolder;
-        margin-right: .5rem;
-        color: $single-link-color;
-
-        [theme=dark] & {
-          color: $single-link-color-dark;
-        }
-      }
-
       ul {
         padding-left: 1.5rem;
       }
@@ -49,7 +38,8 @@
 
 #toc-auto {
   display: block;
-  position: absolute;
+  position: -webkit-sticky;
+  position: sticky;
   width: $MAX_LENGTH;
   max-width: 0;
   padding: 0 .8rem;
@@ -99,14 +89,6 @@
 
       [theme=dark] & {
         color: $single-link-color-dark;
-      }
-
-      &::before {
-        color: $single-link-hover-color;
-
-        [theme=dark] & {
-          color: $single-link-hover-color-dark;
-        }
       }
     }
   }

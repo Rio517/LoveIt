@@ -118,7 +118,7 @@
     }
 
     p {
-      margin: .5rem 0;
+      margin: $default-spacing 0;
     }
 
     b, strong {
@@ -135,9 +135,21 @@
       @include overflow-wrap(break-word);
 
       [theme=dark] & b, [theme=dark] & strong {
-        color: $single-link-color-dark;
+        text-decoration: underline;
+
       }
     }
+
+    p a, ul a{
+        opacity: 0.6;
+        text-decoration: underline;
+        color: inherit;
+
+        [theme=dark] & {
+          opacity: 1;
+          color: rgba(255,255,255,0.7);
+        }
+      }
 
     [theme=dark] a:hover b, [theme=dark] a:hover strong {
       color: $single-link-hover-color-dark;
@@ -146,6 +158,10 @@
     ul, ol {
       margin: .5rem 0;
       padding-left: 2.5rem;
+
+      & li{
+        margin-bottom: $default-spacing;
+      }
     }
 
     ul {
