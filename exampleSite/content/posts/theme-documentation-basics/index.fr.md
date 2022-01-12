@@ -822,7 +822,7 @@ Here is a example:
 
 ```scss
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700&display=swap&subset=latin-ext');
-$code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospace;
+var(--code-font-family): Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospace;
 ```
 
 In `assets/css/_custom.scss`, you can add some css style code to customize the style.

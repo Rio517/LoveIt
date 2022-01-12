@@ -2,21 +2,9 @@
 
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
-
     {{- $toc := $params.toc -}}
-    {{- if eq $toc true -}}
-        {{- $toc = .Site.Params.page.toc | default dict -}}
-    {{- else if eq $toc false -}}
-        {{- $toc = dict "enable" false -}}
-    {{- end -}}
 
-    {{- /* Auto TOC */ -}}
-    {{- if ne $toc.enable false -}}
-        <div class="toc" id="toc-auto">
-            <h2 class="toc-title">{{ T "contents" }}</h2>
-            <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
-        </div>
-    {{- end -}}
+    {{- partial "home/profile.html" . -}}
 
     <article class="page single">
         {{- /* Title */ -}}
@@ -30,8 +18,6 @@
         {{- /* Meta */ -}}
         <div class="post-meta">
             <div class="post-meta-line">
-                {{- $author := $params.author | default .Site.Author.name | default (T "author") -}}
-                {{- $authorLink := $params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
 
                 {{- $categories := slice -}}
                 {{- range .Params.categories -}}
@@ -94,4 +80,19 @@
         {{- /* Comment */ -}}
         {{- partial "comment.html" . -}}
     </article>
+
+    {{- if eq $toc true -}}
+        {{- $toc = .Site.Params.page.toc | default dict -}}
+    {{- else if eq $toc false -}}
+        {{- $toc = dict "enable" false -}}
+    {{- end -}}
+
+    {{- /* Auto TOC */ -}}
+    {{- if ne $toc.enable false -}}
+        <div class="toc" id="toc-auto">
+            <h2 class="toc-title">{{ T "contents" }}</h2>
+            <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
+        </div>
+    {{- end -}}
+
 {{- end -}}

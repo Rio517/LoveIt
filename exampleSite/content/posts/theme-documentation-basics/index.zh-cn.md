@@ -821,7 +821,7 @@ Hugo **extended** 版本对于自定义样式是必需的.
 
 ```scss
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700&display=swap&subset=latin-ext');
-$code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospace;
+var(--code-font-family): Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospace;
 ```
 
 在 `assets/css/_custom.scss` 中, 你可以添加一些 CSS 样式代码以自定义样式.

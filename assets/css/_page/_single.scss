@@ -1,11 +1,28 @@
 @import "../_partial/_single/toc";
 
 .single {
+  flex: 8;
+  max-width: $max-reading-width;
+  padding-right: 1rem;
+  padding-left: 1rem;
+
   .single-title {
     margin: 1rem 0 .5rem;
+    padding-bottom: 0.5rem;
     font-size: 1.6rem;
     font-weight: bold;
     line-height: 140%;
+    border-bottom: 3px dotted var(--text-highlight-orange);
+    position: relative;
+
+    &:after{
+      content: " ";
+      position: absolute;
+      bottom: 2px;
+      width: 100%;
+      display: block;
+      border-bottom: 3px dotted var(--text-highlight-orange);
+    }
   }
 
   .single-subtitle {
@@ -19,6 +36,7 @@
   .post-meta {
     font-size: .875rem;
     color: $global-font-secondary-color;
+    font-family: var(--code-font-family);
 
     span {
       display: inline-block;
@@ -133,23 +151,19 @@
 
     a {
       @include overflow-wrap(break-word);
+      text-decoration: underline;
+      color: inherit;
+      opacity: 0.6;
 
-      [theme=dark] & b, [theme=dark] & strong {
-        text-decoration: underline;
-
-      }
-    }
-
-    p a, ul a{
-        opacity: 0.6;
-        text-decoration: underline;
-        color: inherit;
-
-        [theme=dark] & {
+      [theme=dark] & {
           opacity: 1;
           color: rgba(255,255,255,0.7);
         }
+
+      [theme=dark] & b, [theme=dark] & strong {
+        text-decoration: underline;
       }
+    }
 
     [theme=dark] a:hover b, [theme=dark] a:hover strong {
       color: $single-link-hover-color-dark;
@@ -310,7 +324,7 @@
       @include border-radius(3px);
       @include box-shadow(inset 0 -1px 0 $global-border-color);
       font-size: .8rem;
-      font-family: $code-font-family;
+      font-family: var(--code-font-family);
       color: $code-color;
 
       [theme=dark] & {
@@ -326,7 +340,7 @@
       .code {
         padding: .375rem;
         font-size: .875rem;
-        font-family: $code-font-family;
+        font-family: var(--code-font-family);
         font-weight: bold;
         word-break: break-all;
       }

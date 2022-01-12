@@ -1,4 +1,8 @@
 .toc {
+  flex: 2;
+  align-self: flex-start;
+  max-width: $max-toc-width;
+
   .toc-title {
     font-size: $toc-title-font-size;
     font-weight: bold;
@@ -40,18 +44,12 @@
   display: block;
   position: -webkit-sticky;
   position: sticky;
-  width: $MAX_LENGTH;
-  max-width: 0;
-  padding: 0 .8rem;
-  border-left: 4px solid $global-border-color;
+  padding: 6rem .8rem 0 1rem;
   @include overflow-wrap(break-word);
   box-sizing: border-box;
-  top: 10rem;
-  left: 0;
-  visibility: hidden;
 
   [header-desktop=normal] & {
-    top: 5rem;
+    padding-top: 5rem;
   }
 
   @include blur;

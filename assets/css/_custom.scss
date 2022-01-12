@@ -28,11 +28,15 @@
 }
 
 .text-orange{
-  color: rgb(217, 115, 13);
-  [theme=dark] & {color: coral}
+  color: var(--text-highlight-orange);
+  [theme=dark] & {
+    color: var(--text-highlight-orange-dark);
+  }
 
 }
 .text-blue{
-  color: #337ea9;
-  [theme=dark] & {color: aqua}
+  color: var(--text-highlight-blue);
+  [theme=dark] & {
+    color: var(--text-highlight-blue-dark);
+  }
 }
