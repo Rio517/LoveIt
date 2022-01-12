@@ -194,34 +194,12 @@ class Theme {
                 $tocContentAuto.appendChild($tocCore);
             }
             const $toc = document.getElementById('toc-auto');
-            const $page = document.getElementsByClassName('page')[0];
-            const rect = $page.getBoundingClientRect();
-            $toc.style.left = `${rect.left + rect.width + 20}px`;
-            $toc.style.maxWidth = `${$page.getBoundingClientRect().left - 20}px`;
-            $toc.style.visibility = 'visible';
             const $tocLinkElements = $tocCore.querySelectorAll('a:first-child');
             const $tocLiElements = $tocCore.getElementsByTagName('li');
             const $headerLinkElements = document.getElementsByClassName('headerLink');
             const headerIsFixed = document.body.getAttribute('header-desktop') !== 'normal';
             const headerHeight = document.getElementById('header-desktop').offsetHeight;
-            const TOP_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
-            const minTocTop = $toc.offsetTop;
-            const minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
             this._tocOnScroll = this._tocOnScroll || (() => {
-                // const footerTop = document.getElementById('post-footer').offsetTop;
-                // const maxTocTop = footerTop - $toc.getBoundingClientRect().height;
-                // const maxScrollTop = maxTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
-                // if (this.newScrollTop < minScrollTop) {
-                //     $toc.style.position = 'absolute';
-                //     $toc.style.top = `${minTocTop}px`;
-                // } else if (this.newScrollTop > maxScrollTop) {
-                //     $toc.style.position = 'absolute';
-                //     $toc.style.top = `${maxTocTop}px`;
-                // } else {
-                //     $toc.style.position = 'fixed';
-                //     $toc.style.top = `${TOP_SPACING}px`;
-                // }
-
                 this.util.forEach($tocLinkElements, $tocLink => { $tocLink.classList.remove('active'); });
                 this.util.forEach($tocLiElements, $tocLi => { $tocLi.classList.remove('has-active'); });
                 const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
@@ -248,129 +226,6 @@ class Theme {
             this.scrollEventSet.add(this._tocOnScroll);
         }
     }
-
-    // initMath() {
-    //     if (this.config.math) renderMathInElement(document.body, this.config.math);
-    // }
-
-    // initMermaid() {
-    //     const $mermaidElements = document.getElementsByClassName('mermaid');
-    //     if ($mermaidElements.length) {
-    //         mermaid.initialize({startOnLoad: false, theme: 'null'});
-    //         this.util.forEach($mermaidElements, $mermaid => {
-    //             mermaid.mermaidAPI.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
-    //                 $mermaid.insertAdjacentHTML('afterbegin', svgCode);
-    //             }, $mermaid);
-    //         });
-    //     }
-    // }
-
-    // initEcharts() {
-    //     this._echartsOnSwitchTheme = this._echartsOnSwitchTheme || (() => {
-    //         this._echartsArr = this._echartsArr || [];
-    //         for (let i = 0; i < this._echartsArr.length; i++) {
-    //             this._echartsArr[i].dispose();
-    //         }
-    //         this._echartsArr = [];
-    //         this.util.forEach(document.getElementsByClassName('echarts'), $echarts => {
-    //             const chart = echarts.init($echarts, this.isDark ? 'dark' : 'macarons', {renderer: 'svg'});
-    //             chart.setOption(JSON.parse(this.data[$echarts.id]));
-    //             this._echartsArr.push(chart);
-    //         });
-    //     });
-    //     this.switchThemeEventSet.add(this._echartsOnSwitchTheme);
-    //     this._echartsOnSwitchTheme();
-    //     this._echartsOnResize = this._echartsOnResize || (() => {
-    //         for (let i = 0; i < this._echartsArr.length; i++) {
-    //             this._echartsArr[i].resize();
-    //         }
-    //     });
-    //     this.resizeEventSet.add(this._echartsOnResize);
-    // }
-
-    // initMapbox() {
-    //     if (this.config.mapbox) {
-    //         mapboxgl.accessToken = this.config.mapbox.accessToken;
-    //         mapboxgl.setRTLTextPlugin(this.config.mapbox.RTLTextPlugin);
-    //         this._mapboxArr = this._mapboxArr || [];
-    //         this.util.forEach(document.getElementsByClassName('mapbox'), $mapbox => {
-    //             const { lng, lat, zoom, lightStyle, darkStyle, marked, navigation, geolocate, scale, fullscreen } = this.data[$mapbox.id];
-    //             const mapbox = new mapboxgl.Map({
-    //                 container: $mapbox,
-    //                 center: [lng, lat],
-    //                 zoom: zoom,
-    //                 minZoom: .2,
-    //                 style: this.isDark ? darkStyle : lightStyle,
-    //                 attributionControl: false,
-    //             });
-    //             if (marked) {
-    //                 new mapboxgl.Marker().setLngLat([lng, lat]).addTo(mapbox);
-    //             }
-    //             if (navigation) {
-    //                 mapbox.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-    //             }
-    //             if (geolocate) {
-    //                 mapbox.addControl(new mapboxgl.GeolocateControl({
-    //                     positionOptions: {
-    //                         enableHighAccuracy: true,
-    //                     },
-    //                     showUserLocation: true,
-    //                     trackUserLocation: true,
-    //                 }), 'bottom-right');
-    //             }
-    //             if (scale) {
-    //                 mapbox.addControl(new mapboxgl.ScaleControl());
-    //             }
-    //             if (fullscreen) {
-    //                 mapbox.addControl(new mapboxgl.FullscreenControl());
-    //             }
-    //             mapbox.addControl(new MapboxLanguage());
-    //             this._mapboxArr.push(mapbox);
-    //         });
-    //         this._mapboxOnSwitchTheme = this._mapboxOnSwitchTheme || (() => {
-    //             this.util.forEach(this._mapboxArr, mapbox => {
-    //                 const $mapbox = mapbox.getContainer();
-    //                 const { lightStyle, darkStyle } = this.data[$mapbox.id];
-    //                 mapbox.setStyle(this.isDark ? darkStyle : lightStyle);
-    //                 mapbox.addControl(new MapboxLanguage());
-    //             });
-    //         });
-    //         this.switchThemeEventSet.add(this._mapboxOnSwitchTheme);
-    //     }
-    // }
-
-    // initTypeit() {
-    //     if (this.config.typeit) {
-    //         const typeitConfig = this.config.typeit;
-    //         const speed = typeitConfig.speed ? typeitConfig.speed : 100;
-    //         const cursorSpeed = typeitConfig.cursorSpeed ? typeitConfig.cursorSpeed : 1000;
-    //         const cursorChar = typeitConfig.cursorChar ? typeitConfig.cursorChar : '|';
-    //         Object.values(typeitConfig.data).forEach(group => {
-    //             const typeone = (i) => {
-    //                 const id = group[i];
-    //                 const instance = new TypeIt(`#${id}`, {
-    //                     strings: this.data[id],
-    //                     speed: speed,
-    //                     lifeLike: true,
-    //                     cursorSpeed: cursorSpeed,
-    //                     cursorChar: cursorChar,
-    //                     waitUntilVisible: true,
-    //                     afterComplete: () => {
-    //                         if (i === group.length - 1) {
-    //                             if (typeitConfig.duration >= 0) window.setTimeout(() => {
-    //                                 instance.destroy();
-    //                             }, typeitConfig.duration);
-    //                             return;
-    //                         }
-    //                         instance.destroy();
-    //                         typeone(i + 1);
-    //                     },
-    //                 }).go();
-    //             };
-    //             typeone(0);
-    //         });
-    //     }
-    // }
 
     initComment() {
         if (this.config.comment) {
@@ -465,8 +320,6 @@ class Theme {
                     this._resizeTimeout = null;
                     for (let event of this.resizeEventSet) event();
                     this.initToc();
-                    this.initMermaid();
-                    this.initSearch();
                 }, 100);
             }
         }, false);
@@ -485,18 +338,12 @@ class Theme {
             this.initTwemoji();
             this.initMenuMobile();
             this.initSwitchTheme();
-            // this.initSearch();
             this.initDetails();
             this.initLightGallery();
             this.initHighlight();
             this.initTable();
             this.initHeaderLink();
             this.initSmoothScroll();
-            // this.initMath();
-            // this.initMermaid();
-            // this.initEcharts();
-            // this.initTypeit();
-            // this.initMapbox();
             // this.initCookieconsent();
         } catch (err) {
             console.error(err);
