@@ -34,8 +34,6 @@ class Theme {
         this.data = this.config.data;
         this.isDark = document.body.getAttribute('theme') === 'dark';
         this.util = new Util();
-        this.newScrollTop = this.util.getScrollTop();
-        this.oldScrollTop = this.newScrollTop;
         this.scrollEventSet = new Set();
         this.resizeEventSet = new Set();
         this.switchThemeEventSet = new Set();
@@ -268,51 +266,6 @@ class Theme {
         if (this.config.cookieconsent) cookieconsent.initialise(this.config.cookieconsent);
     }
 
-    onScroll() {
-        const $headers = [];
-        if (document.body.getAttribute('header-desktop') === 'auto') $headers.push(document.getElementById('header-desktop'));
-        if (document.body.getAttribute('header-mobile') === 'auto') $headers.push(document.getElementById('header-mobile'));
-        if (document.getElementById('comments')) {
-            const $viewComments = document.getElementById('view-comments');
-            $viewComments.href = `#comments`;
-            $viewComments.style.display = 'block';
-        }
-        const $fixedButtons = document.getElementById('fixed-buttons');
-        const ACCURACY = 20, MINIMUM = 100;
-        window.addEventListener('scroll', () => {
-            this.newScrollTop = this.util.getScrollTop();
-            const scroll = this.newScrollTop - this.oldScrollTop;
-            const isMobile = this.util.isMobile();
-            this.util.forEach($headers, $header => {
-                if (scroll > ACCURACY) {
-                    $header.classList.remove('fadeInDown');
-                    this.util.animateCSS($header, ['fadeOutUp', 'faster'], true);
-                } else if (scroll < - ACCURACY) {
-                    $header.classList.remove('fadeOutUp');
-                    this.util.animateCSS($header, ['fadeInDown', 'faster'], true);
-                }
-            });
-            if (this.newScrollTop > MINIMUM) {
-                if (isMobile && scroll > ACCURACY) {
-                    $fixedButtons.classList.remove('fadeIn');
-                    this.util.animateCSS($fixedButtons, ['fadeOut', 'faster'], true);
-                } else if (!isMobile || scroll < - ACCURACY) {
-                    $fixedButtons.style.display = 'block';
-                    $fixedButtons.classList.remove('fadeOut');
-                    this.util.animateCSS($fixedButtons, ['fadeIn', 'faster'], true);
-                }
-            } else {
-                if (!isMobile) {
-                    $fixedButtons.classList.remove('fadeIn');
-                    this.util.animateCSS($fixedButtons, ['fadeOut', 'faster'], true);
-                }
-                $fixedButtons.style.display = 'none';
-            }
-            for (let event of this.scrollEventSet) event();
-            this.oldScrollTop = this.newScrollTop;
-        }, false);
-    }
-
     onResize() {
         window.addEventListener('resize', () => {
             if (!this._resizeTimeout) {
@@ -353,7 +306,6 @@ class Theme {
             this.initToc();
             this.initComment();
 
-            this.onScroll();
             this.onResize();
             this.onClickMask();
         }, 100);
