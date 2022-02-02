@@ -9,6 +9,8 @@
     flex: 1 0 auto;
     padding-bottom: 2rem;
 
+    .body-home &{padding-bottom: 4rem;}
+
     .container {
       padding:  $header-height+0.5rem 0 1rem;
       display: flex;
