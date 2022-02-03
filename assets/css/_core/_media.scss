@@ -1,10 +1,10 @@
 @media only screen and (max-width: 1610px) {
   body{
     background-position:
-    right 0.5rem bottom 0.5rem,
-    right 16rem bottom 4rem,
     left 10rem bottom 2rem,
     left 1rem bottom 2.5rem,
+    right 0.5rem bottom 0.5rem,
+    right 16rem bottom 4rem,
     center bottom;
   }
 }
@@ -12,10 +12,10 @@
 @media only screen and (max-width: 1580px) {
   body{
     background-position:
-    right 0.5rem bottom 0.5rem,
-    right 16rem bottom 4rem,
     left 9rem bottom 2rem,
     left 0.5rem bottom 2.5rem,
+    right 0.5rem bottom 0.5rem,
+    right 16rem bottom 4rem,
     center bottom;
   }
 }
@@ -24,10 +24,10 @@
 @media only screen and (max-width: 1440px) {
   body{
     background-position:
-    right 0.5rem bottom 0.5rem,
-    right 16rem bottom 4rem,
     left 8rem bottom 1.5rem,
     left 0.5rem bottom 2.5rem,
+    right 0.5rem bottom 0.5rem,
+    right 16rem bottom 4rem,
     center bottom;
   }
 }
@@ -36,10 +36,10 @@
 @media only screen and (max-width: 1460px) {
   body{
     background-position:
+    left 8rem bottom 1.5rem,
+    left 0.25rem bottom 3rem,
     right 0.5rem bottom 0.5rem,
     right 14rem bottom 4rem,
-    left 8rem bottom 1.5rem,
-    left 0.25rem bottom 3rem,
     center bottom;
   }
 }
@@ -47,10 +47,10 @@
 @media only screen and (max-width: 1435px) {
   body{
     background-position:
+    left 8rem bottom 1.5rem,
+    left 0.25rem bottom 3rem,
     right 0.5rem bottom 0.5rem,
     right 12rem bottom 4rem,
-    left 8rem bottom 1.5rem,
-    left 0.25rem bottom 3rem,
     center bottom;
   }
 }
@@ -58,10 +58,10 @@
 @media only screen and (max-width: 1435px) {
   body{
     background-position:
-    right -4.5rem bottom 0.5rem,
-    right 8.5rem bottom 5rem,
     left 8rem bottom 1.5rem,
     left 0.25rem bottom 3rem,
+    right -4.5rem bottom 0.5rem,
+    right 8.5rem bottom 5rem,
     center bottom;
   }
 
@@ -73,10 +73,10 @@
 @media only screen and (max-width: 1260px) {
   body{
     background-position:
-    right -4.5rem bottom 0.5rem,
-    right 6.5rem bottom 5rem,
     left 6rem bottom,
     left 0.25rem bottom 3rem,
+    right -4.5rem bottom 0.5rem,
+    right 6.5rem bottom 5rem,
     center bottom;
   }
 }
@@ -85,10 +85,10 @@
 @media only screen and (max-width: 1070px) {
   body{
     background-position:
-    right -6.5rem bottom 0.5rem,
-    right 4rem bottom 5rem,
     left 6rem bottom,
     left 0.25rem bottom 3rem,
+    right -6.5rem bottom 0.5rem,
+    right 4rem bottom 5rem,
     center bottom;
   }
 }
@@ -129,10 +129,10 @@
 
   body{
     background-position:
-    right 0.5rem bottom 0.5rem,
-    right 16rem bottom 4rem,
     left 11rem bottom 2rem,
     left 1rem bottom 2.5rem,
+    right 0.5rem bottom 0.5rem,
+    right 16rem bottom 4rem,
     center bottom;
   }
 
@@ -178,15 +178,24 @@
 @media only screen and (max-width: 860px) {
   body{
     background-position:
-    right -3.5rem bottom 0.5rem,
-    right 10rem bottom 4rem,
     left 8rem bottom 1.5rem,
     left 0.25rem bottom 3rem,
+    right -3.5rem bottom 0.5rem,
+    right 10rem bottom 4rem,
     center bottom;
   }
 }
 
 @media only screen and (max-width: 680px) {
+  body{
+    background-position:
+    left 4rem bottom 1.5rem,
+    left -2rem bottom 3rem,
+    right -4.5rem bottom 0.5rem,
+    right 8rem bottom 4rem,
+    center bottom;
+  }
+
   #header-mobile .header-container .header-wrapper .header-title{
     font-size:1.25rem
   }
@@ -227,4 +236,18 @@
 
 @media only screen and (max-width: 620px) {
   .leader-text{display:none;}
+}
+
+
+
+@media only screen and (max-width: 440px) {
+  .is-hidden-mobile{display:none}
+  body {
+    background:
+      // url('/images/blog-bg-enterprise.webp') left 2rem bottom 2rem/7rem no-repeat,
+      url('/images/blog-bg-cactus.webp') left -2rem bottom 3rem/11rem no-repeat,
+      url('/images/blog-bg-books.webp') right -4.5rem bottom 0.5rem/16rem no-repeat,
+      url('/images/blog-bg-bottle.webp') right 7rem bottom 4rem/6rem no-repeat,
+      url('/images/blog-bg-desk-alt2.jpg') center bottom no-repeat;
+  }
 }

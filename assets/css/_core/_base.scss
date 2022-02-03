@@ -33,10 +33,10 @@ html {
 
 body {
   background:
-    url('/images/blog-bg-books.webp') right 0.5rem bottom 0.5rem/16rem no-repeat,
-    url('/images/blog-bg-bottle.webp') right 16rem bottom 4rem/6rem no-repeat,
     url('/images/blog-bg-enterprise.webp') left 11rem bottom 2rem/10rem no-repeat,
     url('/images/blog-bg-cactus.webp') left 1rem bottom 2.5rem/11rem no-repeat,
+    url('/images/blog-bg-books.webp') right 0.5rem bottom 0.5rem/16rem no-repeat,
+    url('/images/blog-bg-bottle.webp') right 16rem bottom 4rem/6rem no-repeat,
     url('/images/blog-bg-desk-alt2.jpg') center bottom no-repeat;
   background-color: $global-background-color;
   color: $global-font-color;
@@ -52,10 +52,10 @@ body {
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi){
   body{
     background-image:
-      url('/images/blog-bg-books-2x.webp'),
-      url('/images/blog-bg-bottle-2x.webp'),
       url('/images/blog-bg-enterprise-2x.webp'),
       url('/images/blog-bg-cactus-2x.webp'),
+      url('/images/blog-bg-books-2x.webp'),
+      url('/images/blog-bg-bottle-2x.webp'),
       url('/images/blog-bg-desk-alt2.jpg');
   }
 }
