@@ -296,7 +296,7 @@ class Theme {
             this.initHighlight();
             this.initTable();
             this.initHeaderLink();
-            this.initSmoothScroll();
+            // this.initSmoothScroll();
             // this.initCookieconsent();
         } catch (err) {
             console.error(err);
