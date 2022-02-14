@@ -108,7 +108,7 @@
                             <span class="header-title-post">{{ . | safeHTML }}</span>
                         {{- end -}}
                     {{- else -}}
-                        {{- .Site.Title | safeHTML -}}
+                        {{- .Site.Params.HeaderTitle | safeHTML -}}
                     {{- end -}}
                 </a>
             </div>
