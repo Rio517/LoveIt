@@ -234,11 +234,22 @@
   }
 }
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 575px) {
   .leader-text{display:none;}
 }
 
-
+@media only screen and (max-width: 464px) {
+  #header-mobile{
+    line-height: 1.4rem;
+    padding: 0.7rem 0 0px;
+    .header-title{
+      white-space: normal;
+    }
+    .leader-text{
+      display:inherit;
+    }
+  }
+}
 
 @media only screen and (max-width: 440px) {
   .is-hidden-mobile{display:none}
@@ -249,5 +260,11 @@
       url('/images/blog-bg-books.webp') right -4.5rem bottom 0.5rem/16rem no-repeat,
       url('/images/blog-bg-bottle.webp') right 7rem bottom 4rem/6rem no-repeat,
       url('/images/blog-bg-desk-alt2.jpg') center bottom no-repeat;
+  }
+}
+
+@media only screen and (max-width: 354px) {
+  #header-mobile .header-container .header-wrapper .header-title{
+    font-size:1rem
   }
 }
