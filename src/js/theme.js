@@ -184,7 +184,7 @@ class Theme {
                 $tocCore.parentElement.removeChild($tocCore);
                 $tocContentStatic.appendChild($tocCore);
             }
-            if (this._tocOnScroll) this.scrollEventSet.delete(this._tocOnScroll);
+            if (this._tocOnScroll) window.removeEventListener('scroll', this._tocOnScroll);
         } else {
             const $tocContentAuto = document.getElementById('toc-content-auto');
             if ($tocCore.parentElement !== $tocContentAuto) {
@@ -200,7 +200,7 @@ class Theme {
             this._tocOnScroll = this._tocOnScroll || (() => {
                 this.util.forEach($tocLinkElements, $tocLink => { $tocLink.classList.remove('active'); });
                 this.util.forEach($tocLiElements, $tocLi => { $tocLi.classList.remove('has-active'); });
-                const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
+                const INDEX_SPACING = 120 + (headerIsFixed ? headerHeight : 0);
                 let activeTocIndex = $headerLinkElements.length - 1;
                 for (let i = 0; i < $headerLinkElements.length - 1; i++) {
                     const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
@@ -221,7 +221,7 @@ class Theme {
                 }
             });
             this._tocOnScroll();
-            this.scrollEventSet.add(this._tocOnScroll);
+            window.addEventListener('scroll', this._tocOnScroll)
         }
     }
 
@@ -258,10 +258,6 @@ class Theme {
         }
     }
 
-    initSmoothScroll() {
-        if (SmoothScroll) new SmoothScroll('[href^="#"]', { speed: 300, speedAsDuration: true, header: '#header-desktop' });
-    }
-
     initCookieconsent() {
         if (this.config.cookieconsent) cookieconsent.initialise(this.config.cookieconsent);
     }
@@ -296,7 +292,6 @@ class Theme {
             this.initHighlight();
             this.initTable();
             this.initHeaderLink();
-            // this.initSmoothScroll();
             // this.initCookieconsent();
         } catch (err) {
             console.error(err);
