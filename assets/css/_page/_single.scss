@@ -71,7 +71,8 @@
 
   .content {
     > h2 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
+      line-height: 1.8rem;
 
       & code {
         font-size: 1.25rem;
@@ -136,6 +137,14 @@
 
     > h2 > .header-mark::before {
       content: "#";
+    }
+
+    > h3 > .header-mark::before {
+      content: "##";
+    }
+
+    > h4 > .header-mark::before {
+      content: "###";
     }
 
     p {
