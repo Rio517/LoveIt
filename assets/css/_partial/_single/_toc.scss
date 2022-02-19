@@ -1,6 +1,5 @@
 .toc {
-  flex: 2;
-  align-self: flex-start;
+  flex: 3;
   max-width: $max-toc-width;
 
   .toc-title {
@@ -42,10 +41,11 @@
 
 #toc-auto {
   display: block;
+  top: 5rem; // threshold needed for sticky
+  align-self: flex-start; // cant be full height or won't be sticky
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
-  padding: 6rem .8rem 0 1rem;
+  padding: 0 .8rem 0 1rem;
   @include overflow-wrap(break-word);
   box-sizing: border-box;
 
@@ -60,7 +60,7 @@
   }
 
   .toc-title {
-    margin: .8rem 0;
+    margin: 0 0 .8rem;
   }
 
   .toc-content {
@@ -79,7 +79,6 @@
     }
 
     a.active {
-      font-weight: bold;
       color: $single-link-color;
 
       [theme=dark] & {

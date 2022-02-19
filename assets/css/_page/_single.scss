@@ -1,5 +1,26 @@
 @import "../_partial/_single/toc";
 
+
+.page.single{
+  max-width: 65rem;
+  flex: 10;
+  display: flex;
+  flex-flow: row wrap;
+
+  .post-head{
+    flex: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-body{
+    flex: 6;
+  }
+
+  .featured-image {
+    margin: 0 0 1rem 0;
+  }
+}
+
 .single {
   flex: 8;
   max-width: $max-reading-width;
