@@ -129,6 +129,7 @@
 
       img.lazyloaded {
         @include object-fit(cover);
+        object-position: center 40%;
       }
 
       &:hover {
