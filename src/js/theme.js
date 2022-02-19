@@ -211,7 +211,7 @@ class Theme {
                         break;
                     }
                 }
-                if (activeTocIndex !== -1) {
+                if (activeTocIndex !== -1 && typeof $tocLinkElements[activeTocIndex] !== 'undefined') {
                     $tocLinkElements[activeTocIndex].classList.add('active');
                     let $parent = $tocLinkElements[activeTocIndex].parentElement;
                     while ($parent !== $tocCore) {
