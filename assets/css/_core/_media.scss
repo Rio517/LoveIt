@@ -66,7 +66,7 @@
   }
 
   .home-posts, .profile .home-subtitle, .profile .links a *{
-    text-shadow: 0 0 25px #fff, 0 0 25px #fff, 0 0 25px #fff, 0 0 10px #fff, 0 4px 15px #fff, 0 0 25px #fff, 0 0 5px #fff,0 0 10px #fff,0 0 20px #fff,0 0 10px #fff;
+    text-shadow: 0 0 25px #fff, 0 0 25px #fff, 0 0 25px #fff, 0 0 10px #fff, 0 4px 15px #fff, 0 0 26px #fff, 0 0 5px #fff,0 0 10px #fff,0 0 20px #fff,0 0 10px #fff;
   }
 }
 
@@ -131,8 +131,8 @@
     background-position:
     left 11rem bottom 2rem,
     left 1rem bottom 2.5rem,
-    right 0.5rem bottom 0.5rem,
-    right 16rem bottom 4rem,
+    right 6rem bottom 0.5rem,
+    right bottom 4rem,
     center bottom;
   }
 
@@ -164,14 +164,14 @@
 
   #header-mobile {
     display: block;
+
+    .header-container .header-wrapper .header-title{
+      max-width:none
+    }
   }
 
   body.blur {
     overflow: hidden;
-  }
-
-  #header-mobile .header-container .header-wrapper .header-title{
-    max-width:none
   }
 }
 
@@ -180,8 +180,8 @@
     background-position:
     left 8rem bottom 1.5rem,
     left 0.25rem bottom 3rem,
-    right -3.5rem bottom 0.5rem,
-    right 10rem bottom 4rem,
+    right 4.5rem bottom 0.5rem,
+    right 0.5rem bottom 4rem,
     center bottom;
   }
 }
@@ -191,8 +191,8 @@
     background-position:
     left 4rem bottom 1.5rem,
     left -2rem bottom 3rem,
-    right -4.5rem bottom 0.5rem,
-    right 8rem bottom 4rem,
+    right -4.5rem bottom -2rem,
+    right -1rem bottom 2rem,
     center bottom;
   }
 
@@ -242,7 +242,8 @@
   #header-mobile{
     line-height: 1.4rem;
     padding: 0.7rem 0 0px;
-    .header-title{
+    .header-container .header-wrapper .header-title{
+      max-width: 20rem;
       white-space: normal;
     }
     .leader-text{
@@ -258,13 +259,20 @@
       // url('/images/blog-bg-enterprise.webp') left 2rem bottom 2rem/7rem no-repeat,
       url('/images/blog-bg-cactus.webp') left -2rem bottom 3rem/11rem no-repeat,
       url('/images/blog-bg-books.webp') right -4.5rem bottom 0.5rem/16rem no-repeat,
-      url('/images/blog-bg-bottle.webp') right 7rem bottom 4rem/6rem no-repeat,
+      url('/images/blog-bg-bottle.webp') left 6rem bottom 4rem/6rem no-repeat,
       url('/images/blog-bg-desk-alt2.jpg') center bottom no-repeat;
   }
 }
 
 @media only screen and (max-width: 354px) {
   #header-mobile .header-container .header-wrapper .header-title{
-    font-size:1rem
+    font-size:1rem;
+    max-width:16rem;
+  }
+}
+
+@media only screen and (max-width: 295px) {
+  #header-mobile .leader-text{
+    display:none;
   }
 }
