@@ -2,6 +2,8 @@
 
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
+    {{- $podcast := $params.podcast -}}
+    {{- $video := $params.video -}}
     {{- $toc := $params.toc -}}
     {{- $toc_required := false -}}
     {{- if ne .TableOfContents ("<nav id=\"TableOfContents\"></nav>" | safeHTML) -}}
@@ -47,6 +49,12 @@
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
+                {{- end -}}
+                {{- if $podcast -}}
+                    <i class="fas fa-microphone"></i>&nbsp;<a href="{{ printf "%s" $podcast }}">podcast</a>&nbsp;
+                {{- end -}}
+                {{- if $video -}}
+                    <i class="fas fa-youtube-play"></i>&nbsp;<a href="{{ printf "%s" $video }}">video</a>&nbsp;
                 {{- end -}}
             </div>
         </div>
