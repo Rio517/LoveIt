@@ -122,6 +122,26 @@
   #header-mobile .header-container .header-wrapper .header-title{font-size:1.4rem}
 }
 
+@media only screen and (min-width: 960px) {
+  .page.single{
+    .post-head{
+      top: 3rem;
+      position: sticky;
+      background: rgba(255,255,255,0.92);
+      z-index: 99;
+      backdrop-filter: blur(2px);
+    }
+
+    .headerLink::before {
+      content: '';
+      display: block;
+      height: 6rem;
+      margin-top: -6rem;
+      visibility: hidden;
+    }
+  }
+}
+
 @media only screen and (max-width: 960px) {
   .wrapper main{
     padding-bottom: 16rem;
@@ -234,7 +254,7 @@
   }
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 580px) {
   .leader-text{display:none;}
 }
 

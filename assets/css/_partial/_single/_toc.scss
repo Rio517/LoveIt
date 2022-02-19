@@ -41,7 +41,7 @@
 
 #toc-auto {
   display: block;
-  top: 5rem; // threshold needed for sticky
+  top: 10rem; // threshold needed for sticky
   align-self: flex-start; // cant be full height or won't be sticky
   position: -webkit-sticky;
   position: sticky;
