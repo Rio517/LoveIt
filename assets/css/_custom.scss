@@ -27,16 +27,20 @@
   }
 }
 
-.text-orange{
+.text-orange, .content a.text-orange{
   color: var(--text-highlight-orange);
+  opacity: 1;
   [theme=dark] & {
     color: var(--text-highlight-orange-dark);
   }
-
 }
-.text-blue{
+
+.text-blue, .content a.text-blue{
   color: var(--text-highlight-blue);
+  opacity: 1;
   [theme=dark] & {
     color: var(--text-highlight-blue-dark);
   }
 }
+
+.content .tight-bullets ul li{margin-bottom: 0; }
