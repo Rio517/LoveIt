@@ -20,7 +20,7 @@
             </h1>
             {{- /* Subtitle */ -}}
             {{- with $params.subtitle -}}
-                <h2 class="single-subtitle">{{ . }}</h2>
+                <h2 class="single-subtitle">{{ safeHTML . }}</h2>
             {{- end -}}
         </div>
 
