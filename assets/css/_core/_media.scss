@@ -126,6 +126,14 @@
   #header-desktop .header-wrapper {
     padding-left: 1rem;
   }
+
+  .page {
+    width: 100%;
+
+    &.home .home-posts {
+      flex: auto;
+    }
+  }
 }
 @media only screen and (max-width: 965px) {
   #header-desktop .header-wrapper .header-title{font-size:1.4rem}
@@ -178,10 +186,6 @@
     display: block;
   }
 
-  .page {
-    width: 80%;
-  }
-
   .container > .profile{
     display:none;
   }
@@ -218,6 +222,19 @@
     right 0.5rem bottom 4rem,
     center bottom;
   }
+
+  .page {
+    &>div{width:100%}
+    &.home{
+      flex-flow: wrap-reverse;
+      justify-content: center;
+      padding-bottom: 10rem;
+    }
+
+    .profile .links{
+      margin-top: 0.5rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 680px) {
@@ -239,8 +256,6 @@
   }
 
   .page {
-    width: 100%;
-
     [header-mobile] & {
       padding-top: $header-height;
     }
