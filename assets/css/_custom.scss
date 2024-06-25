@@ -51,3 +51,32 @@
 }
 
 .content .tight-bullets ul li{margin-bottom: 0; }
+
+@media print {
+  #header-desktop {
+    display: none;
+  }
+  .wrapper main > .container {
+    padding-top: 0.5rem;
+  }
+  #toc-auto {display:none;}
+
+  .profile{margin-right: 0;padding-top:0}
+
+  #content{font-size: 0.85rem; line-height: 1.1rem; margin-right: 0.4rem}
+  .single .single-title{margin-top:0}
+
+  footer .footer-container .footer-line{ display: none;}
+
+  body{
+    background-position:
+    left 10rem bottom 2rem,
+    left 1rem bottom 2.5rem,
+    right 6rem bottom 0rem,
+    right -0.4rem bottom 2rem,
+    center bottom;
+  }
+
+  .profile .home-subtitle {line-height: 1.1rem; font-size: 0.9rem;}
+
+}
