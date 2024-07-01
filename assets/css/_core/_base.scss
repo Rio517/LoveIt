@@ -37,7 +37,7 @@ body {
     url('/images/blog-bg-cactus.webp') left 1rem bottom 2.5rem/11rem no-repeat,
     url('/images/blog-bg-books.webp') right 0.5rem bottom 0.5rem/16rem no-repeat,
     url('/images/blog-bg-bottle.webp') right 16rem bottom 4rem/6rem no-repeat,
-    url('/images/blog-bg-desk-alt2.jpg') center bottom no-repeat;
+    url('/images/blog-bg-desk.webp') center bottom repeat-x;
   background-color: $global-background-color;
   color: $global-font-color;
   @include overflow-wrap(break-word);
@@ -56,7 +56,7 @@ body {
       url('/images/blog-bg-cactus-2x.webp'),
       url('/images/blog-bg-books-2x.webp'),
       url('/images/blog-bg-bottle-2x.webp'),
-      url('/images/blog-bg-desk-alt2.jpg');
+      url('/images/blog-bg-desk.webp');
   }
 }
 
