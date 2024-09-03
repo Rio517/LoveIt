@@ -53,18 +53,18 @@
 .content .tight-bullets ul li{margin-bottom: 0; }
 
 @media print {
-  #header-desktop {
-    display: none;
-  }
-  .wrapper main > .container {
-    padding-top: 0.5rem;
-  }
+  #header-desktop { display: none; }
+  .wrapper main > .container { padding-top: 0.5rem; }
   #toc-auto {display:none;}
 
   .profile{margin-right: 0;padding-top:0}
+  .profile .home-subtitle {line-height: 1.1rem; font-size: 0.9rem;}
 
   #content{font-size: 0.85rem; line-height: 1.1rem; margin-right: 0.4rem}
+
   .single .single-title{margin-top:0}
+  .single .content>h2{font-size: 1.25rem;}
+  .single .content>h3{font-size: 1.1rem;}
 
   footer .footer-container .footer-line{ display: none;}
 
@@ -77,6 +77,10 @@
     center bottom;
   }
 
-  .profile .home-subtitle {line-height: 1.1rem; font-size: 0.9rem;}
-
+  // "special" handles css for single page content
+  .special {
+    .single-title, .single-subtitle {
+      font-size: 2.0rem;
+    }
+  }
 }
