@@ -1,0 +1,114 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+{{ define "body_class" }}resume-page{{ end }}
+
+{{- define "content" -}}
+{{- $params := .Scratch.Get "params" -}}
+
+<div class="page single special resume">
+
+    <div class="resume-header">
+        <div class="post-head">
+            {{- /* Title */ -}}
+            <h1 class="single-title animated flipInX">
+                <section>{{ .Title }}</section>
+                <section>
+                    <a href="mailto:mflores3@gmail.com" class="text-blue">mflores3@gmail.com</a>
+                </section>
+            </h1>
+
+            {{- /* Subtitle */ -}}
+            {{- with $params.subtitle -}}
+                <h2 class="single-subtitle">{{ safeHTML . }}</h2>
+            {{- end -}}
+
+            {{- /* Meta */ -}}
+            <div class="post-meta">
+                <div class="post-meta-line">
+                    <section>
+                        {{- partial "function/profile-social-links.html" . -}}
+                    </section>
+
+                    <section>
+                        Check out my <a href="/guide-to-working-with-mario/" class="text-blue">guide to working with me</a>.
+                    </section>
+
+                </div>
+            </div>
+        </div>
+        <div class="highlights-section">
+            {{ .Params.highlights | safeHTML }}
+        </div>
+        <div class="avatar-section">
+            {{- partial "function/profile-avatar.html" . -}}
+
+        </div>
+    </div>
+
+    <div class="resume-content">
+        {{ range .Params.experience }}
+        <div class="experience-item {{ if .line_break }}print-page-break{{ end }}">
+            <div class="left-column">
+                <h3>{{ .company }}</h3>
+                <p class="dates">{{ .dates }}</p>
+                <p class="location">{{ .location }}</p>
+                <div class="skills">
+                    {{ range .skills }}
+                    <span class="skill">{{ . }}</span>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="right-column">
+                <h3>{{ .title }}</h3>
+                <div class="mobile-content">
+                    <h3 class="company-title">{{ .company }}</h3>
+                    <section>
+                        <p class="dates">{{ .dates }}</p>
+                        <p class="location">{{ .location }}</p>
+                    </section>
+                </div>
+                <p>{{ .summary }}</p>
+                {{ if .achievements }}
+                <ul>
+                    {{ range .achievements }}
+                    <li>{{ . | markdownify }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+        {{ range .Params.education }}
+        <div class="experience-item education{{ if .line_break }}print-page-break{{ end }}">
+            <div class="left-column">
+                <h3 class="school-title">{{ .school }}</h3>
+                <p class="dates">{{ .date }}</p>
+                <p class="location">{{ .location }}</p>
+            </div>
+            <div class="right-column">
+                <h3>{{ .degree }}</h3>
+                <div class="mobile-content">
+                    <h3 class="school-title">{{ .school }}</h3>
+                    <p class="dates">{{ .date }}</p>
+                    <p class="location">{{ .location }}</p>
+                </div>
+                {{ if .summary }}
+                  <p>{{ .summary }}</p>
+                {{ end }}
+                {{ if .achievements }}
+                <ul>
+                    {{ range .achievements }}
+                    <li>{{ . | markdownify }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    <div class="content" id="content">
+        {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+    </div>
+</div>
+{{- end -}}

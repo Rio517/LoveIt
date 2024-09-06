@@ -20,30 +20,4 @@
             {{- end -}}
         </div>
     {{- end -}}
-
-    {{- with $profile.title -}}
-        <h1 class="home-title">
-            {{- . | safeHTML -}}
-        </h1>
-    {{- end -}}
-
-    {{- with $profile.subtitle -}}
-        <h2 class="home-subtitle">
-            {{- if $profile.typeit -}}
-                {{- $id := dict "Content" . "Scratch" $.Scratch | partial "function/id.html" -}}
-                <div id="{{ $id }}" class="typeit"></div>
-                {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
-            {{- else -}}
-                {{- safeHTML . -}}
-            {{- end -}}
-        </h2>
-    {{- end -}}
-
-    {{- partial "function/profile-social-links.html" . -}}
-
-    {{- with $profile.disclaimer -}}
-        <h3 class="home-disclaimer">
-            {{- . | safeHTML -}}
-        </h3>
-    {{- end -}}
 </div>

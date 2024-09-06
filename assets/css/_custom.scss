@@ -52,7 +52,218 @@
 
 .content .tight-bullets ul li{margin-bottom: 0; }
 
+
+// Resume styles
+.resume {
+  h1, h2, h3 {
+    font-family: var(--code-font-family);
+  }
+
+  .resume-header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px dotted var(--text-highlight-orange);
+
+    [theme=dark] & {
+      border-bottom-color: var(--text-highlight-orange-dark);
+    }
+
+    .post-head {
+      width: 100%;
+      padding-top: 1rem;
+      margin-bottom: 0;
+
+      .single-title {
+        display: flex;
+        justify-content: space-between;
+        font-size: 2rem;
+      }
+
+      .post-meta-line {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.2rem;
+
+        section {
+          min-width: 120px;
+        }
+      }
+    }
+
+    .highlights-section {
+      padding-top: 1rem;
+      margin-bottom: 1rem;
+
+      ul {
+        list-style-type: "★ ";
+        text-indent: 0.5rem;
+      }
+
+      li::marker {
+        color: var(--text-highlight-blue);
+        opacity: 1;
+        [theme=dark] & {
+          color: var(--text-highlight-blue-dark);
+        }
+      }
+    }
+
+    .avatar-section {
+      align-self: center;
+
+      .profile {
+        padding: 0;
+        margin: 0;
+
+        .links{
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .resume-content {
+    .experience-item {
+      display: grid;
+      grid-template-columns: 210px auto;
+      gap: 2rem;
+      margin-bottom: 2rem;
+
+      &.education h3.school-title {
+        color: var(--text-highlight-blue);
+        [theme=dark] & {
+          color: var(--text-highlight-blue-dark);
+        }
+      }
+    }
+
+    .dates, .location {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.2;
+      color: rgba(0,0,0,0.5);
+      font-weight: 700;
+      [theme=dark] & {
+        color: rgba(255,255,255,0.5);
+      }
+    }
+
+    .dates{margin-top: 0.75rem}
+    .location{margin-bottom: 0.75rem;}
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.5rem;
+      justify-content: flex-end;
+      align-content: flex-end; // Add this line for multi-line alignment
+
+      .skill {
+        background-color: rgba(0, 0, 0, 0.1);
+        line-height:1rem;
+        padding:3px 4px 3px;
+        border-radius:3px;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+
+    .left-column {
+      text-align: right;
+    }
+
+    .left-column h3, h3.company-title {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: var(--text-highlight-orange);
+    }
+
+    .right-column {
+      h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      p:first-of-type {
+        margin-top: 0;
+      }
+
+      ul {
+        padding-left: 1.5rem;
+      }
+    }
+  }
+
+  .content {
+    margin-left: calc(210px + 2rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .resume {
+    .resume-header {
+      .post-head {
+        .single-title section:nth-child(2) {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    .avatar-section {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .resume .right-column .mobile-content {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .resume {
+    .right-column .mobile-content {
+
+        .dates{
+          margin-top: 0;
+        }
+    }
+    .left-column { display: none; }
+    .resume-content .experience-item {
+      grid-template-columns: 1fr;
+    }
+    .resume-header {
+      .post-head {
+        .single-title section:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// print styles
+
 @media print {
+
+  // Webkit: background image on bottom of 4th page
+  @media (-webkit-min-device-pixel-ratio:0) {
+    body.resume-page {
+      height: 400vh;
+    }
+  }
+
+  // Firefox: hide background
+  @-moz-document url-prefix() {
+    body.resume-page {
+      background: none !important;
+    }
+  }
+
   #header-desktop { display: none; }
   .wrapper main > .container { padding-top: 0.5rem; }
   #toc-auto {display:none;}
@@ -82,5 +293,73 @@
     .single-title, .single-subtitle {
       font-size: 1.6rem;
     }
+  }
+
+  // New print styles for special resume
+  .special.resume {
+    font-size: 0.8rem;
+
+    .resume-header {
+      li{
+        line-height: 1.1rem;
+      }
+
+      .highlights-section {
+        padding-top: 0;
+      }
+
+      .avatar-section {
+        display: none;
+      }
+      .post-head {
+        padding-top: 0;
+      }
+    }
+
+    .resume-content {
+      font-size: 1rem;
+      line-height: 1.2rem;
+
+      .experience-item {
+        margin-bottom: 1rem;
+      }
+
+      li{
+        margin-bottom: 0.5rem;
+      }
+
+      .left-column {
+        h3 {
+          font-size: 1rem;
+        }
+
+        .dates, .location {
+          font-size: 0.9rem;
+        }
+
+        .dates {
+          margin-top: 0;
+        }
+
+        .skills .skill {
+          font-size: 0.8rem;
+          padding: 3px;
+        }
+      }
+
+      .right-column {
+        h3 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .print-page-break {
+    page-break-after: always;
+  }
+
+  .print-page-break + .experience-item {
+    padding-top: 2rem;
   }
 }
