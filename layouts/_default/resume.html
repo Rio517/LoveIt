@@ -4,6 +4,18 @@
 {{- define "content" -}}
 {{- $params := .Scratch.Get "params" -}}
 
+<script>
+    params = new URLSearchParams(window.location.search);
+    console.log(window.location.search);
+    console.log(params.get('resume-alt-print'));
+
+    document.addEventListener("DOMContentLoaded", function() {
+        if (params.get('resume-alt-print') === 'true') {
+            document.body.classList.add('resume-alt-print');
+        }
+    });
+</script>
+
 <div class="page single special resume">
 
     <div class="resume-header">

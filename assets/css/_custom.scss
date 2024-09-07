@@ -247,8 +247,11 @@
 }
 
 // print styles
-
 @media print {
+
+  @page {
+    margin-bottom: 0;
+  }
 
   // Webkit: background image on bottom of 4th page
   @media (-webkit-min-device-pixel-ratio:0) {
@@ -257,10 +260,31 @@
     }
   }
 
-  // Firefox: hide background
-  @-moz-document url-prefix() {
-    body.resume-page {
-      background: none !important;
+  body.resume-page.resume-alt-print {
+    background: none; // Remove background for all pages
+    height: 100vh;
+
+    .resume {
+      position: relative;
+    }
+
+    .resume::after {
+      content: '';
+      display: block;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      background:
+      url('/images/blog-bg-enterprise-2x.webp') left 10rem bottom 2rem/10rem no-repeat,
+      url('/images/blog-bg-cactus-2x.webp') left 1rem bottom 2.5rem/11rem no-repeat,
+      url('/images/blog-bg-books-2x.webp') right 6rem bottom 0rem/16rem no-repeat,
+      url('/images/blog-bg-bottle-2x.webp') right -0.4rem bottom 2rem/6rem no-repeat,
+      url('/images/blog-bg-desk.webp') center bottom repeat-x;
+      z-index: -1;
+      page-break-before: always;
+      page-break-after: always;
     }
   }
 
@@ -361,5 +385,13 @@
 
   .print-page-break + .experience-item {
     padding-top: 2rem;
+  }
+}
+
+@media print {
+  @-moz-document url-prefix() {
+    body.resume-page {
+      background: none;
+    }
   }
 }
