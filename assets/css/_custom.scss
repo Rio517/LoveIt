@@ -160,6 +160,7 @@
       flex-wrap: wrap;
       gap: 0.3rem;
       margin-top: 0.5rem;
+      margin-bottom: 4px;
       justify-content: flex-end;
       align-content: flex-end; // Add this line for multi-line alignment
 
@@ -168,7 +169,7 @@
         line-height:1rem;
         padding:3px 4px 3px;
         border-radius:3px;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 400;
       }
     }
@@ -256,7 +257,7 @@
   // Webkit: background image on bottom of 4th page
   @media (-webkit-min-device-pixel-ratio:0) {
     body.resume-page {
-      height: 400vh;
+      height: 300vh;
     }
   }
 
@@ -305,10 +306,10 @@
 
   body{
     background-position:
-    left 10rem bottom 2rem,
-    left 1rem bottom 2.5rem,
-    right 6rem bottom 0rem,
-    right -0.4rem bottom 2rem,
+    left 8rem bottom -1rem,
+    left -1rem bottom -1rem,
+    right 5rem bottom -1rem,
+    right -0.2rem bottom 2rem,
     center bottom;
   }
 
@@ -341,14 +342,20 @@
     }
 
     .resume-content {
-      font-size: 1rem;
-      line-height: 1.2rem;
+      font-size: 0.8rem;
+      line-height: 1rem;
 
       .experience-item {
         margin-bottom: 1rem;
       }
 
       li{
+        margin-bottom: 0.25rem;
+        line-height: 0.9rem;
+      }
+
+      /* Target li elements that have content spanning multiple lines */
+      li:has(strong) {
         margin-bottom: 0.5rem;
       }
 
@@ -366,14 +373,18 @@
         }
 
         .skills .skill {
-          font-size: 0.8rem;
-          padding: 3px;
+          font-size: 0.7rem;
+          padding: 0 2px;
         }
       }
 
       .right-column {
         h3 {
           font-size: 1rem;
+        }
+
+        p {
+          margin-bottom: 0.4rem;
         }
       }
     }
