@@ -347,6 +347,10 @@
 
       .experience-item {
         margin-bottom: 1rem;
+
+        &.education {
+          margin-bottom: 0;
+        }
       }
 
       li{
