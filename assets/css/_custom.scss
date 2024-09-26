@@ -171,6 +171,10 @@
         border-radius:3px;
         font-size: 0.9rem;
         font-weight: 400;
+
+        [theme=dark] & {
+          background-color: rgba(0,0,0, 0.9);
+        }
       }
     }
 
@@ -286,6 +290,15 @@
       z-index: -1;
       page-break-before: always;
       page-break-after: always;
+
+      [theme=dark] & {
+        background-image:
+        url('/images/blog-bg-enterprise-2x-dark.webp'),
+        url('/images/blog-bg-cactus-2x-dark.webp'),
+        url('/images/blog-bg-books-2x-dark.webp'),
+        url('/images/blog-bg-bottle-2x-dark.webp'),
+        url('/images/blog-bg-desk-dark.webp');
+      }
     }
   }
 

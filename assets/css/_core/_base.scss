@@ -46,6 +46,12 @@ body {
   &[theme=dark] {
     color: $global-font-color-dark;
     background-color: $global-background-color-dark;
+    background-image:
+      url('/images/blog-bg-enterprise-dark.webp'),
+      url('/images/blog-bg-cactus-dark.webp'),
+      url('/images/blog-bg-books-dark.webp'),
+      url('/images/blog-bg-bottle-dark.webp'),
+      url('/images/blog-bg-desk-dark.webp');
   }
 }
 
@@ -57,6 +63,15 @@ body {
       url('/images/blog-bg-books-2x.webp'),
       url('/images/blog-bg-bottle-2x.webp'),
       url('/images/blog-bg-desk.webp');
+
+    &[theme=dark] {
+      background-image:
+        url('/images/blog-bg-enterprise-2x-dark.webp'),
+        url('/images/blog-bg-cactus-2x-dark.webp'),
+        url('/images/blog-bg-books-2x-dark.webp'),
+        url('/images/blog-bg-bottle-2x-dark.webp'),
+        url('/images/blog-bg-desk-dark.webp');
+    }
   }
 }
 
